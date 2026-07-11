@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import{useEffect,useState} from 'react'
+import Navigationbar from './Navigationbar'
 
 const Viewcourse = () => {
      const [data,setdata]=useState([])
@@ -21,6 +22,7 @@ const Viewcourse = () => {
         },[])
   return (
     <div>
+        <Navigationbar/>
         <div className="container mt-4">
         <h2 className="text-center mb-4">View All course</h2>
 
