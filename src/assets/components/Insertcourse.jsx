@@ -25,14 +25,16 @@ const Insertcourse = () => {
     const dataHandler=()=>{
         console.log(input)
         
-        axios.post("http://192.168.33.245:5001/api/add-course",input).then(
+        axios.post("https://host-demo-app.onrender.com/api/add-course",input).then(
             (res)=>{
                 setinput(res.data)
                 alert("data added")
             }
         ).catch(
             (error)=>{
-                console.log(error);
+                console.log(error.response);
+    console.log(error.response.data);
+    console.log(error.response.status);
                 
             }
         )
@@ -75,13 +77,12 @@ const Insertcourse = () => {
                     </div>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
                         <label htmlFor="" className="form-label">mode</label>
-                        <input type="text" 
-                        className="form-control" 
-                        name='mode'
-                        value={input.mode}
-                        onChange={inputhandler}
-                        
-                        />
+                        <select name="" id="" className="form-control" name="mode" onChange={inputhandler} >
+                          <option value="Offline">Offline</option>
+                          <option value="Online">Online</option>
+                          <option value="Hybrid">Hybrid</option>
+                        </select>
+                       
                     </div>
                     <div className="col col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
                         <label htmlFor="" className="form-label">trainer:</label>
